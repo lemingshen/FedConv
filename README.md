@@ -107,5 +107,6 @@ python3 client.py --client_id <client_id>
 ```
 
 ## Notes
-- Feel free to modify the hyper-parameters in the `config.py` and good luck.
+- Feel free to modify the hyper-parameters in the `config.py`.
 - Please don't hesitate to reach out if you have any questions.
+- Due to the limited space, we only uploaded the MNIST dataset to the repository. You can download other datasets from their official websites and use "Dirichlet distribution" to split them.
