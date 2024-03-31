@@ -103,10 +103,15 @@ python3 server.py
 
 ### 4. Client Configuration
 ```bash
-python3 client.py --client_id <client_id>
+python3 client.py --client_id 0
+python3 client.py --client_id 1
+python3 client.py --client_id 2
+...
+python3 client.py --client_id 9
 ```
 
 ## Notes
-- Feel free to modify the hyper-parameters in the `config.py`.
+- Feel free to modify the hyper-parameters in the `config.py`
+- The default number of clients is 10.
 - Please don't hesitate to reach out if you have any questions.
 - Due to the limited space, we only uploaded the MNIST dataset to the repository. You can download other datasets from their official websites and use "Dirichlet distribution" to split them.
