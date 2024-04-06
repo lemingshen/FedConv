@@ -115,3 +115,14 @@ python3 client.py --client_id 9
 - The default number of clients is 10.
 - Please don't hesitate to reach out if you have any questions.
 - Due to the limited space, we only uploaded the MNIST dataset to the repository. You can download other datasets from their official websites and use "Dirichlet distribution" to split them.
+
+## Citation
+```
+@inproceedings{shen2024fedconv,
+  title={FedConv: A Learning-on-Model Paradigm for Heterogeneous Federated Clients},
+  author={Shen, Leming and Yang, Qiang and Cui, Kaiyan and Zheng, Yuanqing and Wei, Xiao-yong and Liu, Jianwei and Han, Jinsong},
+  booktitle={Proceedings of the 22st Annual International Conference on Mobile Systems, Applications and Services},
+  pages={1--14},
+  year={2024}
+}
+```
