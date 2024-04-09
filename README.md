@@ -5,7 +5,7 @@ Federated Learning (FL) facilitates collaborative training of a shared global mo
 
 ## Requreiments
 - Hardware
-    - A server with GPT
+    - A server with GPU
     - Multiple clients (edge devices)
 - Software
     - Operating System: Ubuntu 22.04 LTS
