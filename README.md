@@ -1,9 +1,9 @@
 # FedConv: Learning on Model for Heterogeneous Federated Clients
-Federated Learning (FL) facilitates collaborative training of a shared global model without exposing clients’ private data. In practical FL systems, clients (e.g., edge servers, smartphones, and wearables) typically have disparate system resources. Conventional FL, however, adopts a one-size-fits-all solution, where a homogeneous large global model is transmitted to and trained on each client, resulting in an overwhelming workload for less capable clients and starvation for other clients. To address this issue, we propose FedConv, a clientfriendly FL framework, which minimizes the computation and memory burden on resource-constrained clients by providing heterogeneous customized sub-models. FedConv features a novel learning-on-model paradigm that learns the parameters of the heterogeneous sub-models via convolutional compression. Unlike traditional compression methods, the compressed models in FedConv can be directly trained on clients without decompression. To aggregate the heterogeneous sub-models, we propose transposed convolutional dilation to convert them back to large models with a unified size while retaining personalized information from clients. The compression and dilation processes, transparent to clients, are optimized on the server leveraging a small public dataset. Extensive experiments on six datasets demonstrate that FedConv outperforms state-of-the-art FL systems in terms of model accuracy (by more than 35% on average), computation and communication overhead (with 33% and 25% reduction, respectively).
+Federated Learning (FL) facilitates collaborative training of a shared global model without exposing clients’ private data. In practical FL systems, clients (e.g., edge servers, smartphones, and wearables) typically have disparate system resources. Conventional FL, however, adopts a one-size-fits-all solution, where a homogeneous large global model is transmitted to and trained on each client, resulting in an overwhelming workload for less capable clients and starvation for other clients. To address this issue, we propose FedConv, a client-friendly FL framework, which minimizes the computation and memory burden on resource-constrained clients by providing heterogeneous customized sub-models. FedConv features a novel learning-on-model paradigm that learns the parameters of the heterogeneous sub-models via convolutional compression. Unlike traditional compression methods, the compressed models in FedConv can be directly trained on clients without decompression. To aggregate the heterogeneous sub-models, we propose transposed convolutional dilation to convert them back to large models with a unified size while retaining personalized information from clients. The compression and dilation processes, transparent to clients, are optimized on the server leveraging a small public dataset. Extensive experiments on six datasets demonstrate that FedConv outperforms state-of-the-art FL systems in terms of model accuracy (by more than 35% on average), computation and communication overhead (with 33% and 25% reduction, respectively).
 
 <img src=images/scenario.png width=50%/>
 
-## Requreiments
+## Requirements
 - Hardware
     - A server with GPU
     - Multiple clients (edge devices)
@@ -18,10 +18,10 @@ Federated Learning (FL) facilitates collaborative training of a shared global mo
 ![System overview of FedConv](images/system.png)
 
 - Server
-    - Initialze a large global model.
+    - Initialize a large global model.
     - Apply _Convolutional Compression_ on the large global and generate heterogeneous sub-models for clients.
-    - Apply _Transposed Convolutional Dilation_ on the received hetergeneous client models to transform them into large models.
-    - Apply _Weighted Average Aggregation_ on the rescaled large models and perform model aggregation for the next global communiction round.
+    - Apply _Transposed Convolutional Dilation_ on the received heterogeneous client models to transform them into large models.
+    - Apply _Weighted Average Aggregation_ on the rescaled large models and perform model aggregation for the next global communication round.
 
 - Heterogeneous Clients
     - Perform their resource profiles to determine a set of shrinkage ratios and transmit the shrinkage ratios to the server.
@@ -49,14 +49,14 @@ Federated Learning (FL) facilitates collaborative training of a shared global mo
 
 |-- Results                     // evaluation results
     |-- evaluation              // includes global model accuracy and client model accuracy
-    |-- memory                  // includes CPU & GPU memeory usage, network usage, and wall-clock time
+    |-- memory                  // includes CPU & GPU memory usage, network usage, and wall-clock time
     |-- saved_models            // saved state_dict
     |-- weight_vector           // saved weight vectors
 
 |-- utils                       // FedConv settings
     |-- client_settings.py      // client-side model related settings
     |-- data_processing.py      // data loading & processing related settings
-    |-- federated settings.py   // convolutional compression, TC dilation, and weighted aggregation related settings
+    |-- federated settings.py   // convolutional compression, TC dilation, and weighted aggregation-related settings
 
 |-- Replace                     // modified PyTorch packages
     |-- batchnorm.py
@@ -78,7 +78,7 @@ Federated Learning (FL) facilitates collaborative training of a shared global mo
 ```
 
 ## Quick Start
-### 1. Installtion
+### 1. Installation
 ```bash
 pip3 install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu117
 ```
@@ -120,7 +120,7 @@ python3 client.py --client_id 9
 ```
 @inproceedings{shen2024fedconv,
   title={FedConv: A Learning-on-Model Paradigm for Heterogeneous Federated Clients},
-  author={Shen, Leming and Yang, Qiang and Cui, Kaiyan and Zheng, Yuanqing and Wei, Xiao-yong and Liu, Jianwei and Han, Jinsong},
+  author={Shen, Leming and Yang, Qiang and Cui, Kaiyan and Zheng, Yuanqing and Wei, Xiao-Yong and Liu, Jianwei and Han, Jinsong},
   booktitle={Proceedings of the 22st Annual International Conference on Mobile Systems, Applications and Services},
   pages={1--14},
   year={2024}
