@@ -116,6 +116,15 @@ python3 client.py --client_id 9
 - Please don't hesitate to reach out if you have any questions.
 - Due to the limited space, we only uploaded the MNIST dataset to the repository. You can download other datasets from their official websites and use "Dirichlet distribution" to split them.
 
+## Q&A
+- grpc connection error
+	- Error `grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:8080: Failed to connect to remote host: Connection refused"`
+	- Solution
+		- When running clients, please modify a variable named `server_address` in `config.py` to the ground truth IP address of your server.
+		- Make sure that your server has opened the firewall port `8080` and that no other processes are occupying this port.
+		- More detailed issues can be found on [Flower Issues](https://github.com/adap/flower/issues/537)
+
+
 ## Citation
 ```
 @inproceedings{shen2024fedconv,
