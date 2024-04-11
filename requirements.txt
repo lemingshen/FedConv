@@ -1,5 +1,5 @@
 numpy
-flwr
+flwr==1.6.0
 tqdm
 pympler
 psutil
