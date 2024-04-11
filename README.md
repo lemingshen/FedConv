@@ -116,15 +116,6 @@ python3 client.py --client_id 9
 - Please don't hesitate to reach out if you have any questions.
 - Due to the limited space, we only uploaded the MNIST dataset to the repository. You can download other datasets from their official websites and use "Dirichlet distribution" to split them.
 
-## Q&A
-- grpc connection error
-	- Error `grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:8080: Failed to connect to remote host: Connection refused"`
-	- Solution
-		- When running clients, please modify a variable named `server_address` in `config.py` to the ground truth IP address of your server.
-		- Make sure that your server has opened the firewall port `8080` and that no other processes are occupying this port.
-		- More detailed issues can be found on [Flower Issues](https://github.com/adap/flower/issues/537)
-
-
 ## Citation
 ```
 @inproceedings{shen2024fedconv,
@@ -135,3 +126,73 @@ python3 client.py --client_id 9
   year={2024}
 }
 ```
+
+## Output Specification
+1. Global model accuracy
+    - The global model accuracy will be recorded in `./Results/evaluation/server.json`
+    - The format of the JSON file will be
+        ```json
+        {
+            "0": {
+                "validation_accuracy": 90.90,
+                "validation_loss": 2.30,
+                "test_accuracy": 90.90,
+                "test_loss": 2.30
+            },
+            ...,
+            "100": {
+                "validation_accuracy": 90.90,
+                "validation_loss": 2.30,
+                "test_accuracy": 90.90,
+                "test_loss": 2.30
+            }
+        }
+        ```
+    - Each key in the JSON represents the index of global communication round.
+    - Each value in the JSON is also a JSON recording the validation accuracy, validation loss, test accuracy, and test loss calculated on the IID server-side global data for *convolution/TC parameter* fine-tuning and the IID test data for evaluating the global model, respectively.
+2. Client model accuracy
+    - The client model accuracy will be recorded in `./Results/evaluation/client_{}_evaluate.json`
+    - The format of the JSON file will be
+        ```json
+        {
+            "1": {
+                "testing_loss": 0.006,
+                "testing_accuracy": 98.7
+            },
+            ...,
+            "100": {
+                "testing_loss": 0.006,
+                "testing_accuracy": 98.7
+            }
+        }
+        ```
+    - Each key in the JSON represents the index of global communication round.
+    - Each value in the JSON is also a JSON recording the test accuracy, and test loss calculated on the non-IID client-side private data for personalization performance evaluation.
+3. CPU & GPU memory
+    - The memory usage of each client will be recorded in `./Results/memory/cpu_gpu_memory_client{}.json`
+    - The format of the JSON file will be
+        ```json
+        {
+            "1689128485": {
+                "CPU": 1114.01171875,
+                "GPU": 0.080078125
+            },
+            ...,
+            "1689171710": {
+                "CPU": 2495.73046875,
+                "GPU": 16.9375
+            }
+        }
+        ```
+    - Each key in the JSON represents a certain timestamp.
+    - Each value in the JSON is also a JSON recording the CPU and GPU memory usage (in MB) at a certain timestamp.
+
+**We provide our original experiment results at `demo_results` for your references.**
+
+## Q&A
+- grpc connection error
+	- Error `grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:8080: Failed to connect to remote host: Connection refused"`
+	- Solution
+		- When running clients, please modify a variable named `server_address` in `config.py` to the ground truth IP address of your server.
+		- Make sure that your server has opened the firewall port `8080` and that no other processes are occupying this port.
+		- More detailed issues can be found on [Flower Issues](https://github.com/adap/flower/issues/537)
