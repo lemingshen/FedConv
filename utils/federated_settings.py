@@ -1170,8 +1170,8 @@ def deconvolution_process(
         dict_index = evaluate_list.index(max(evaluate_list))
 
         if (
-            state_dict_list[dict_index]["test_accuracy"] < 90
-            or state_dict_list[dict_index]["validation_accuracy"] < 90
+            state_dict_list[dict_index]["test_accuracy"] < 80
+            or state_dict_list[dict_index]["validation_accuracy"] < 80
         ):
             current_deconv_filter = initialize_conv_deconv_parameter(
                 model_size_index=model_size_index, conv_deconv=False
