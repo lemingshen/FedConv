@@ -1,0 +1,62 @@
+{
+    "MNIST": {
+        "FedConv": 11116.03,
+        "Standalone": 0,
+        "FedAvg": 14792.21,
+        "LotteryFL": 14792.21,
+        "FedMD": 19990.32,
+        "Hermes": 16342.16,
+        "TailorFL": 11395.26,
+        "HeteroFL": 11116.03
+    },
+    "CIFAR10": {
+        "FedConv": 4713906.56,
+        "Standalone": 0,
+        "FedAvg": 4815839.31,
+        "LotteryFL": 4815839.31,
+        "FedMD": 5126456.91,
+        "Hermes": 5999664.31,
+        "TailorFL": 4787176.82,
+        "HeteroFL": 4713906.56
+    },
+    "CINIC10": {
+        "FedConv": 2623925.48,
+        "Standalone": 0,
+        "FedAvg": 2697851.55,
+        "LotteryFL": 2697851.55,
+        "FedMD": 2859790.65,
+        "Hermes": 2848826.29,
+        "TailorFL": 2686145.63,
+        "HeteroFL": 2623925.48
+    },
+    "WiAR": {
+        "FedConv": 23013.00,
+        "Standalone": 0,
+        "FedAvg": 28236.21,
+        "LotteryFL": 28236.21,
+        "FedMD": 39907.93,
+        "Hermes": 36634.83,
+        "TailorFL": 23299.87,
+        "HeteroFL": 23013.00
+    },
+    "Depth_Camera": {
+        "FedConv": 10050.66,
+        "Standalone": 0,
+        "FedAvg": 13452.14,
+        "LotteryFL": 13452.14,
+        "FedMD": 19936.32,
+        "Hermes": 15020.75,
+        "TailorFL": 10322.27,
+        "HeteroFL": 10050.66
+    },
+    "HARBox": {
+        "FedConv": 8546.14,
+        "Standalone": 0,
+        "FedAvg": 8865.72,
+        "LotteryFL": 8865.72,
+        "FedMD": 16238.40,
+        "Hermes": 12945.56,
+        "TailorFL": 8817.75,
+        "HeteroFL": 8546.14
+    }
+}
