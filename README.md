@@ -1,4 +1,7 @@
 # FedConv: A Learning-on-Model Paradigm for Heterogeneous Federated Clients
+
+[![r](https://img.shields.io/badge/access-paper-blue)](https://lemingshen.github.io/assets/publication/conference/fedconv/paper.pdf) &ensp; [![](https://img.shields.io/badge/visit_our-website-red)](https://lemingshen.github.io/projects/fedconv/) &ensp; [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Federated Learning (FL) facilitates collaborative training of a shared global model without exposing clients’ private data. In practical FL systems, clients (e.g., edge servers, smartphones, and wearables) typically have disparate system resources. Conventional FL, however, adopts a one-size-fits-all solution, where a homogeneous large global model is transmitted to and trained on each client, resulting in an overwhelming workload for less capable clients and starvation for other clients. To address this issue, we propose FedConv, a client-friendly FL framework, which minimizes the computation and memory burden on resource-constrained clients by providing heterogeneous customized sub-models. FedConv features a novel learning-on-model paradigm that learns the parameters of the heterogeneous sub-models via convolutional compression. Unlike traditional compression methods, the compressed models in FedConv can be directly trained on clients without decompression. To aggregate the heterogeneous sub-models, we propose transposed convolutional dilation to convert them back to large models with a unified size while retaining personalized information from clients. The compression and dilation processes, transparent to clients, are optimized on the server leveraging a small public dataset. Extensive experiments on six datasets demonstrate that FedConv outperforms state-of-the-art FL systems in terms of model accuracy (by more than 35% on average), computation and communication overhead (with 33% and 25% reduction, respectively).
 
 <img src=images/scenario.png width=50%/>
@@ -116,7 +119,12 @@ python3 client.py --client_id 9
 - Feel free to modify the hyper-parameters in the `config.py`
 - The default number of clients is 10.
 - Please don't hesitate to reach out if you have any questions.
-- Due to the limited space, we only uploaded the MNIST dataset to the repository. You can download other datasets from their official websites and use "Dirichlet distribution" to split them.
+- All the evaluation results by ourselves are presented in:
+  - `./Results/global_modal_accuracy.json`
+  - `./Results/client_modal_accuracy.json`
+  - `./Results/communication_cost.json`
+  - `./Results/memory_usage.json`
+  - `./Results/wall_clock_time.json`
 
 ## Citation
 ```
