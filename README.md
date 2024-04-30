@@ -4,6 +4,7 @@ Federated Learning (FL) facilitates collaborative training of a shared global mo
 <img src=images/scenario.png width=50%/>
 
 ## Requirements
+<font color='red'>It is recommended to strictly follow the Software configurations.</font>
 - Hardware
     - A server with GPU
     - Multiple clients (edge devices)
@@ -84,7 +85,7 @@ pip3 install -r requirements.txt --extra-index-url https://download.pytorch.org/
 ```
 
 ### 2. PyTorch Package Modification
-Replace the following Python files from your local Python environment with the files provided in the `Replace` folder:
+Replace the following Python files from your local Python environment with the files provided in the `Replace` folder. <font color='blue'>Note that although we modify the PyTorch packages, you can still normally use it just like before.</font>
 
 ```
 /usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py
@@ -111,6 +112,7 @@ python3 client.py --client_id 9
 ```
 
 ## Notes
+- All the other datasets are available through this [link](https://connectpolyu-my.sharepoint.com/:f:/g/personal/22040929r_connect_polyu_hk/EuEuGeVyyc9PssTNHtqSBVkB1-CWuUpZCJfk-XWUwmoi5w?e=LQ2No3).
 - Feel free to modify the hyper-parameters in the `config.py`
 - The default number of clients is 10.
 - Please don't hesitate to reach out if you have any questions.
@@ -190,9 +192,11 @@ python3 client.py --client_id 9
 **We provide our original experiment results at `demo_results` for your references.**
 
 ## Q&A
-- grpc connection error
+1. grpc connection error
 	- Error `grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:8080: Failed to connect to remote host: Connection refused"`
 	- Solution
 		- When running clients, please modify a variable named `server_address` in `config.py` to the ground truth IP address of your server.
 		- Make sure that your server has opened the firewall port `8080` and that no other processes are occupying this port.
 		- More detailed issues can be found on [Flower Issues](https://github.com/adap/flower/issues/537)
+2. Total running time
+   For the MNIST dataset, it takes around 72 hours to finish the entire FL process with global communication round set to 100. Nearly 99.99% of the time is spent on the server, depending how powerful the server is.
