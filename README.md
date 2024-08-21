@@ -115,7 +115,7 @@ python3 client.py --client_id 9
 ```
 
 ## Notes
-- All the other datasets are available through this [link](https://connectpolyu-my.sharepoint.com/:f:/g/personal/22040929r_connect_polyu_hk/EuEuGeVyyc9PssTNHtqSBVkB1-CWuUpZCJfk-XWUwmoi5w?e=LQ2No3).
+- All the other datasets are available through this [link](https://mypikpak.com/s/VO4nTQ6jxHed_-QbUrdlmSBko1).
 - Feel free to modify the hyper-parameters in the `config.py`
 - The default number of clients is 10.
 - Please don't hesitate to reach out if you have any questions.
